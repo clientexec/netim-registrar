@@ -155,7 +155,7 @@ class PluginNetim extends RegistrarPlugin implements ICanImportDomains
   				$status = 2;
   				break;
   		}
-      $domains[] = array("tld"=>$params['sld'],"domain"=>$params['tld'],"status"=>$status);
+      $domains[] = array("tld"=>$params['tld'],"domain"=>$params['sld'],"status"=>$status);
       return array("result"=>$domains);
     }
 
