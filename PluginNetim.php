@@ -20,70 +20,70 @@ class PluginNetim extends RegistrarPlugin implements ICanImportDomains
     function getVariables()
     {
         $variables = array(
-                /*T*/'Plugin Name'/*/T*/ => array (
+                lang('Plugin Name') => array (
                         'type'          =>'hidden',
-                        'description'   =>/*T*/'How CE sees this plugin (not to be confused with the Signup Name)'/*/T*/,
-                        'value'         =>/*T*/'NETIM'/*/T*/
+                        'description'   =>lang('How CE sees this plugin (not to be confused with the Signup Name)'),
+                        'value'         =>lang('NETIM')
                 ),
-          /*T*/'Use testing server'/*/T*/ => array(
+          lang('Use testing server') => array(
                                 'type'          =>'yesno',
-                                'description'   =>/*T*/'Select Yes if you wish to use NETIM testing environment, so that transactions are not actually made.<BR><BR><strong>Note:</strong> You will first need to register for a test account at https://tryout.netim.com/bin/register_prog.php?PROG=REV'/*/T*/,
+                                'description'   =>lang('Select Yes if you wish to use NETIM testing environment, so that transactions are not actually made.<BR><BR><strong>Note:</strong> You will first need to register for a test account at https://tryout.netim.com/bin/register_prog.php?PROG=REV'),
                                 'value'         =>0
                                ),
-   			   /*T*/'Login'/*/T*/ => array(
+   			   lang('Login') => array(
 											'type'          =>'text',
-											'description'   =>/*T*/'Enter your username for your NETIM reseller account.'/*/T*/,
+											'description'   =>lang('Enter your username for your NETIM reseller account.'),
 											'value'         =>''
 										   ),
 
-          /*T*/'Password'/*/T*/ => array(
+          lang('Password') => array(
 											'type'          =>'password',
-											'description'   =>/*T*/'Enter the password for your NETIM reseller account.'/*/T*/,
+											'description'   =>lang('Enter the password for your NETIM reseller account.'),
 											'value'         =>''
 										   ),
-				/*T*/'DNS 1'/*/T*/ => array(
+				lang('DNS 1') => array(
 											'type' 			=>'text',
 											'description'   =>'Default nameserver #1',
 											'value'			=>'a.ns.netim.net'
 											),
-				/*T*/'DNS 2'/*/T*/ => array(
+				lang('DNS 2') => array(
 											'type' 			=>'text',
 											'description'   =>'Default nameserver #2',
 											'value'			=>'b.ns.netim.net'
 											),
-				/*T*/'DNS 3'/*/T*/ => array(
+				lang('DNS 3') => array(
 											'type' 			=>'text',
 											'description'   =>'Default nameserver #3',
 											'value'			=>''
 											),
-				/*T*/'DNS 4'/*/T*/ => array(
+				lang('DNS 4') => array(
 											'type' 			=>'text',
 											'description'   =>'Default nameserver #4',
 											'value'			=>''
 											),
-				/*T*/'DNS 5'/*/T*/ => array(
+				lang('DNS 5') => array(
 											'type' 			=>'text',
 											'description'   =>'Default nameserver #5',
 											'value'			=>''
 											),
-                /*T*/'Supported Features'/*/T*/  => array(
+                lang('Supported Features')  => array(
                                 'type'          => 'label',
-                                'description'   => '* './*T*/'TLD Lookup'/*/T*/.'<br>* './*T*/'Domain Registration'/*/T*/.' <br>* <b>'./*T*/'All european and generic TLDs'/*/T*/.'</b><BR>* './*T*/'Get / Set Auto Renew Status'/*/T*/.' <br>* './*T*/'Get / Set DNS Records'/*/T*/.' <br>* './*T*/'Get / Set Nameservers'/*/T*/.' <br>* './*T*/'Get / Set Contact Information'/*/T*/.' <br>* './*T*/'Get / Set Registrar lock'/*/T*/.' <br>* './*T*/'Send Transfer Key'/*/T*/,
+                                'description'   => '* '.lang('TLD Lookup').'<br>* '.lang('Domain Registration').' <br>* <b>'.lang('All european and generic TLDs').'</b><BR>* '.lang('Get / Set Auto Renew Status').' <br>* '.lang('Get / Set DNS Records').' <br>* '.lang('Get / Set Nameservers').' <br>* '.lang('Get / Set Contact Information').' <br>* '.lang('Get / Set Registrar lock').' <br>* '.lang('Send Transfer Key'),
                                 'value'         => ''
                                 ),
-                 /*T*/'Actions'/*/T*/ => array (
+                 lang('Actions') => array (
                                 'type'          => 'hidden',
-                                'description'   => /*T*/'Current actions that are active for this plugin (when a domain isn\'t registered)'/*/T*/,
+                                'description'   => lang('Current actions that are active for this plugin (when a domain isn\'t registered)'),
                                 'value'         => 'Register'
                                 ),
-           		 /*T*/'Registered Actions'/*/T*/ => array (
+           		 lang('Registered Actions') => array (
                                 'type'          => 'hidden',
-                                'description'   => /*T*/'Current actions that are active for this plugin (when a domain is registered)'/*/T*/,
+                                'description'   => lang('Current actions that are active for this plugin (when a domain is registered)'),
                                 'value'         => 'SendTransferKey,RegistrarLock,RegistrarUnlock'
                                 ),
-                /*T*/'Registered Actions For Customer'/*/T*/ => array (
+                lang('Registered Actions For Customer') => array (
                                 'type'          => 'hidden',
-                                'description'   => /*T*/'Current actions that are active for this plugin (when a domain is registered)'/*/T*/,
+                                'description'   => lang('Current actions that are active for this plugin (when a domain is registered)'),
                                 'value'         => 'SendTransferKey,RegistrarLock,RegistrarUnlock',
             )
         );
