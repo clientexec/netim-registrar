@@ -930,7 +930,7 @@ class PluginNetim extends RegistrarPlugin implements ICanImportDomains
   		# ----------------------------------------------------------------------
   		try
   		{
-  			$domZone = $clientSOAP->__soapCall("queryZoneList",array($IDSession,$domain)) ;
+  			$domZone = $clientSOAP->__soapCall("queryZoneList",array($IDSession,$domain));
   		}
   		catch(SoapFault $fault)
   		{
@@ -957,13 +957,16 @@ class PluginNetim extends RegistrarPlugin implements ICanImportDomains
   		# Getting records
   		# ----------------------------------------------------------------------
   		$hostrecords = array();
-  		$i = 0;
+  		$i = 1;
   		foreach($domZone as $value)
   		{
   			//Recheche d'un sous domaine.
   			$tab = explode(".",$value->host);
   			if(count($tab) > 2)
   				$h = $tab[0];
+			else if (count($tab) == 2) {
+				$h = $value->host;
+			}
   			else
   				$h = " ";
 
@@ -1001,7 +1004,7 @@ class PluginNetim extends RegistrarPlugin implements ICanImportDomains
 
   		$default = true;
   		$types = array('A', 'MX', 'CNAME', 'URL', 'FRAME', 'TXT');
-          return array('records' => $hostrecords, 'types' => $types, 'default' => $default);
+  		return array('records' => $hostrecords, 'types' => $types, 'default' => $default);
     }
 
 
@@ -1097,9 +1100,9 @@ class PluginNetim extends RegistrarPlugin implements ICanImportDomains
   						}
   						catch(SoapFault $fault)
   						{
-  							$clientSOAP->__soapCall("logout",array($IDSession)) ;
-  							throw new Exception("domainZoneDelete error:<BR>".$fault->getMessage());
-  							return false;
+  							//$clientSOAP->__soapCall("logout",array($IDSession)) ;
+  							//throw new Exception("domainZoneDelete error:<BR>".$fault->getMessage());
+  							//return false;
   						}
   					}
   				}
