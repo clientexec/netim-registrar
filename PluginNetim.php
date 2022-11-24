@@ -263,7 +263,7 @@ class PluginNetim extends RegistrarPlugin
         $owner['city']         = $params["RegistrantCity"];
         $owner['area']         = $params["RegistrantStateProvince"];
         $owner['country']      = $params["RegistrantCountry"];
-        $owner['phone']        = $params["RegistrantPhone"];
+        $owner['phone']        = $this->validatePhone($params["RegistrantPhone"], $params["RegistrantCountry"]);
         $owner["fax"]          = "";
         $owner['email']        = $params["RegistrantEmailAddress"];
         $owner["language"]     = "EN";
@@ -580,10 +580,10 @@ class PluginNetim extends RegistrarPlugin
               'address2' => "",
               'city' => $params['Registrant_City'],
               'area' => $params['Registrant_State'],
-              'country' => $params['Registrant_Province'],
+              'country' => $params['Registrant_Country'],
               'zipCode' => $params['Registrant_Zipcode'],
               'email' => $params['Registrant_EmailAddress'],
-              'phone' => $params['Registrant_Phone'],
+              'phone' => $this->validatePhone($params['Registrant_Phone'], $params['Registrant_Country']),
             'fax' => ""
           );
 
@@ -1148,5 +1148,31 @@ class PluginNetim extends RegistrarPlugin
     function getTransferStatus($params)
     {
         throw new MethodNotImplemented('Method getTransferStatus has not been implemented yet.');
+    }
+
+    private function validatePhone($phone, $country)
+    {
+        // strip all non numerical values
+        $phone = preg_replace('/[^\d]/', '', $phone);
+
+        if ($phone == '') {
+            return $phone;
+        }
+
+        $query = "SELECT phone_code FROM country WHERE iso=? AND phone_code != ''";
+        $result = $this->db->query($query, $country);
+        if (!$row = $result->fetch()) {
+            return $phone;
+        }
+
+        // check if code is already there
+        $code = $row['phone_code'];
+        $phone = preg_replace("/^($code)(\\d+)/", '+\1.\2', $phone);
+        if ($phone[0] == '+') {
+            return $phone;
+        }
+
+        // if not, prepend it
+        return "+$code.$phone";
     }
 }
