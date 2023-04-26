@@ -1,5 +1,5 @@
 # About the registrar module
-This module is the implementation of the domain name registrar plusing for Netim in ClientExec.
+This module is the implementation of the domain name registrar pluging for Netim in ClientExec.
 To learn more about ClientExec, see https://www.clientexec.com
 
 This module is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.
@@ -10,7 +10,7 @@ Technical Support: modules-support@netim.com
 
 # Features
 
-__ Price and TLD Management__
+__Price and TLD Management__
 - Import extensions
 
 __Domain Management__
