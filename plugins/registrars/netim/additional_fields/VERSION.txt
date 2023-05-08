@@ -1,7 +1,0 @@
-Version: 2.04
-Date: 2023-04-11
-
-****************************
-Changelogs and documentation
-****************************
-Please visit https://support.netim.com/en/docs/resellers/modules/domain-additional-fields
