@@ -1,7 +1,7 @@
 <?php
     define('NE_ADMIN', false);
     define('APPLICATION_PATH', realpath(__DIR__.'/../../..'));
-
+  
     require_once APPLICATION_PATH.'/config.php';
     require_once APPLICATION_PATH.'/plugins/registrars/netim/lib/Core.php';
 
