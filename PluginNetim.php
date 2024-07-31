@@ -352,11 +352,11 @@
             $sld       = $params["sld"];
             $domain    = $sld.".".$tld;
             $duration  = $params["NumYears"];
-            $ns1       = $params["DNS 1"];
-            $ns2       = $params["DNS 2"];
-            $ns3       = $params["DNS 3"];
-            $ns4       = $params["DNS 4"];
-            $ns5       = $params["DNS 5"];
+	    $ns1       = $params["NS1"] ? $params['NS1']['hostname'] : $params["DNS 1"];
+            $ns2       = $params["NS2"] ? $params['NS2']['hostname'] : $params["DNS 2"];
+            $ns3       = $params["NS3"] ? $params['NS3']['hostname'] : $params["DNS 3"];
+            $ns4       = $params["NS4"] ? $params['NS4']['hostname'] : $params["DNS 4"];
+            $ns5       = $params["NS5"] ? $params['NS5']['hostname'] : $params["DNS 5"];
 
             // Addons
             $trusteeService = isset($params["package_addons"]) && isset($params["package_addons"]["CUSTOM_TRUSTEE"]) && $params["package_addons"]["CUSTOM_TRUSTEE"] == "Yes";
